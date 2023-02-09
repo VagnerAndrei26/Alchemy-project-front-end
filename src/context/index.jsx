@@ -22,7 +22,7 @@ export const StateContextProvider = ({ children }) => {
             ])
             console.log("contract call succesfull", data)
         } catch(error) {
-            console.log("contract call failure", error)
+            error("contract call failure", error)
         }
     }
 
@@ -52,7 +52,7 @@ export const StateContextProvider = ({ children }) => {
             return data;
             console.info("contract call successs", applicant);
         } catch(err) {
-            console.error("contract call failure", err);
+            alert("contract call failure", err);
         }
     }
 
@@ -62,7 +62,7 @@ export const StateContextProvider = ({ children }) => {
             return applicant;
             console.info("contract call successs", applicant);
         } catch(err){
-            console.error("contract call failure", err);
+            alert("contract call failure", err);
         }
     }
 
@@ -74,7 +74,7 @@ export const StateContextProvider = ({ children }) => {
             return data;
             console.info("contract call successs", data);
         } catch(err){
-            console.error("contract call failure", err);
+            alert("contract call failure", err);
         }
       }
 
@@ -86,7 +86,7 @@ export const StateContextProvider = ({ children }) => {
             return data;
             console.info("contract call successs", data);
         } catch(err) {
-            console.error("contract call failure", err);
+            alert("contract call failure", err);
         }
       }
       const { mutateAsync: setPayCheck } = useContractWrite(contract, "setPayCheck")
@@ -96,7 +96,7 @@ export const StateContextProvider = ({ children }) => {
             const data = await setPayCheck([ form.payment, form.id ]);
             console.info("contract call successs", data);
             } catch (err) {
-            console.error("contract call failure", err);
+            alert("contract call failure", err);
             }
         }
        
@@ -106,14 +106,13 @@ export const StateContextProvider = ({ children }) => {
             const data = await contract.call("payEmployee", form.id, {value: ethers.utils.parseEther(form.pay)});
             console.info("contract call successs", data);
           } catch (err) {
-            console.error("contract call failure", err);
+            alert("contract call failure", err);
           }
         }
         
         const getEth = async(form) => {
           const data = await contract.call("convertEthInUsd", form.id)
           const realdata = ethers.utils.formatEther(data.toString());
-          console.log(realdata);
           return realdata;
         }
 

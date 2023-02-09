@@ -18,8 +18,6 @@ const JobDetails = () => {
 
   const fetchApplicant = async () => {
     const data = await getApplicant(state.pId);
-    console.log(state.employee)
-    console.log(state.payment)
     setApplicant(data);
   }
 
