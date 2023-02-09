@@ -6,7 +6,7 @@ import { ethers } from "ethers";
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
-    const { contract } = useContract("0xE0e330dB6D87ff97eF28d36cc9624E0158EE7D7E")
+    const { contract } = useContract("0x23a1335C66b1a9bD6D1742ac51BF53537B99c0A7")
 
     const { mutateAsync: createJob } = useContractWrite(contract, "createJob");
     
